@@ -1,19 +1,16 @@
 <html>
 <head>
- <img id="image" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Untitled.png" 
+ <img id="image" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Untitled.png" >
 <script>
 let image = document.getElementById('image');
 image.style.position = 'relative';
 
 function moveImage(){
-  let top = Math.floor(Math.random()*75);
-  let left = Math.floor(Math.random()*75);
-  let right = Math.floor(Math.random()*75);
-  let bottom = Math.floor(Math.random()*75);
+  let top = Math.floor(Math.random()*750);
+  let left = Math.floor(Math.random()*750);
   image.style.top = top + 'px';
   image.style.left = left + 'px';
-  image.style.right = right + 'px';
-  image.style.bottom = bottom + 'px';
+
 };
 
 image.addEventListener('click', moveImage);
