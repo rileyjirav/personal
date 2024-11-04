@@ -12,8 +12,10 @@ function moveImage(){
   image.style.left = left + 'px';
 
 };
-
-image.addEventListener('click', moveImage);
+function stopImage(){
+  image.style.position = 'fixed';
+}
+image.addEventListener('click', stopImage);
 var timing = setInterval(moveImage, 1000);
 </script>
 
