@@ -1,6 +1,10 @@
 <html>
 <head>
  <img id="image" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Untitled.png" >
+ <style>
+.test{cursor: 
+  ;}
+ </style>
 <script>
 let image = document.getElementById('image');
 image.style.position = 'relative';
@@ -10,13 +14,15 @@ function moveImage(){
   let left = Math.floor(Math.random()*750);
   image.style.top = top + 'px';
   image.style.left = left + 'px';
-
+  
 };
-function stopImage(){
-  image.style.position = 'fixed';
-}
-image.addEventListener('click', stopImage);
 var timing = setInterval(moveImage, 1000);
+document.getElementById("image").onclick = 
+function(){
+  clearInterval(timing);
+}
+
+
 </script>
 
 
