@@ -9,14 +9,16 @@
 <script>
 const moles = [document.getElementById('image0'),document.getElementById('image1'),document.getElementById('image2')];
 moles.style.position = 'relative';
-
+const MOLE_SIZE = 100px;
+const PAGE_HEIGHT = 1080px;
 
   function moveImage(){
   for (const mole of moles){
-  let top = Math.floor(Math.random()*750);
-  let left = Math.floor(Math.random()*750);
-  mole.style.top = top + 'px';
-  mole.style.left = left + 'px';
+    function getRandomInRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+  mole.style.top = getRandomInRange(MOLE_SIZE, PAGE_HEIGHT - MOLE_SIZE) + 'px';
+  mole.style.left = getRandomInRange(MOLE_SIZE, PAGE_HEIGHT - MOLE_SIZE) + 'px';
 }
 }
 var timing = setInterval(moveImage, 600);
