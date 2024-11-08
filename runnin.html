@@ -1,27 +1,29 @@
 <html>
 <head>
- <img id="image" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Whack-a-mole.png" width="100px" >
+ <img id="image0" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Whack-a-mole.png" width="100px" >
+ <img id="image1" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Whack-a-mole.png" width="100px" >
+ <img id="image2" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Whack-a-mole.png" width="100px" >
  <style>
   body{cursor: url(https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/mallet.png),auto}
  </style>
 <script>
-let image = document.getElementById('image');
-image.style.position = 'relative';
+const moles = [document.getElementById('image0'),document.getElementById('image1'),document.getElementById('image2')];
+moles.style.position = 'relative';
 
-function moveImage(){
+
+  function moveImage(){
+  for (const mole of moles){
   let top = Math.floor(Math.random()*750);
   let left = Math.floor(Math.random()*750);
-  image.style.top = top + 'px';
-  image.style.left = left + 'px';
-  
-};
+  mole.style.top = top + 'px';
+  mole.style.left = left + 'px';
+}
+}
 var timing = setInterval(moveImage, 600);
-document.getElementById("image").onclick = 
+document.getElementById("moles").onclick = 
 function(){
   clearInterval(timing);
 }
-
-
 </script>
 
 
