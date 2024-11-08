@@ -10,6 +10,12 @@
 const moles = [document.getElementById('image0'),document.getElementById('image1'),document.getElementById('image2')];
 const MOLE_SIZE = 100;
 const PAGE_HEIGHT = 1080;
+for (const mole of moles){
+  mole.style.position = "relative";
+  mole.onclick =  function(){
+    clearInterval(timing);
+  }
+}
 
   function moveImage(){
   for (const mole of moles){
@@ -21,10 +27,14 @@ const PAGE_HEIGHT = 1080;
 }
 }
 var timing = setInterval(moveImage, 600);
-document.getElementById("moles").onclick = 
+for (const mole of moles){
+  document.getElementById("mole").onclick = 
 function(){
   clearInterval(timing);
 }
+
+}
+
 </script>
 
 
