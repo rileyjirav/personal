@@ -1,4 +1,59 @@
+<!DOCTYPE html>
 <html>
+<head>
+ <style>
+  body {
+    cursor: url(https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/mallet.png),auto
+  }
+  img {
+    position: absolute;
+  }
+ </style>
+</head>
+<body>
+ <img id="image0" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Whack-a-mole.png" width="100px">
+ <img id="image1" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Whack-a-mole.png" width="100px">
+ <img id="image2" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Whack-a-mole.png" width="100px">
+
+<script>
+const moles = [
+  { img: document.getElementById('image0'), isActive: true, ID: 'mole0' },
+  { img: document.getElementById('image1'), isActive: true, ID: 'mole1' },
+  { img: document.getElementById('image2'), isActive: true, ID: 'mole2' }
+];
+
+const MOLE_SIZE = 100;
+const PAGE_HEIGHT = window.innerHeight;
+const PAGE_WIDTH = window.innerWidth;
+
+function getRandomInRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function moveImage() {
+  for (const mole of moles) {
+    if (mole.isActive === true) {
+      mole.img.style.top = getRandomInRange(MOLE_SIZE, PAGE_HEIGHT - MOLE_SIZE) + 'px';
+      mole.img.style.left = getRandomInRange(MOLE_SIZE, PAGE_WIDTH - MOLE_SIZE) + 'px';
+    }
+  }
+}
+
+for (const mole of moles) {
+  mole.img.style.position = "absolute";
+  mole.img.onclick = function() {
+    mole.isActive = false;
+  };
+}
+
+setInterval(moveImage, 600);
+</script>
+</body>
+</html>
+
+
+
+<!-- <html>
 <head>
  <img id="image0" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Whack-a-mole.png" width="100px" >
  <img id="image1" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Whack-a-mole.png" width="100px" >
@@ -7,25 +62,33 @@
   body{cursor: url(https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/mallet.png),auto}
  </style>
 <script>
-const moles = [document.getElementById('image0'),document.getElementById('image1'),document.getElementById('image2')];
+const moles = [{img: document.getElementById('image0'), isActive: true, ID:mole0}, 
+{img: document.getElementById('image1'), isActive: true,ID:mole1}, 
+{img: document.getElementById('image2'), isActive: true,ID:mole2} ]
+
 const MOLE_SIZE = 100;
 const PAGE_HEIGHT = 1080;
-for (const mole of moles){
-  mole.style.position = "relative";
-  mole.onclick =  function(){
-    clearInterval(timing);
-  }
-}
 
-  function moveImage(){
+function moveImage(){
   for (const mole of moles){
     function getRandomInRange(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-  mole.style.top = getRandomInRange(MOLE_SIZE, PAGE_HEIGHT - MOLE_SIZE) + 'px';
-  mole.style.left = getRandomInRange(MOLE_SIZE, PAGE_HEIGHT - MOLE_SIZE) + 'px';
+  if(mole.isActive=== true){
+    img.style.top = getRandomInRange(MOLE_SIZE, PAGE_HEIGHT - MOLE_SIZE) + 'px';
+    img.style.left = getRandomInRange(MOLE_SIZE, PAGE_HEIGHT - MOLE_SIZE) + 'px';
 }
+
+}}
+for (const mole of moles){
+  mole.style.position = "relative";
+  mole.onclick =  function(){
+    clearInterval(timing);
+    mole[isActive]: false;
+  }
 }
+
+
 var timing = setInterval(moveImage, 600);
 for (const mole of moles){
   document.getElementById("mole").onclick = 
@@ -42,7 +105,7 @@ function(){
 </head>  
 
   
-</html>
+</html> -->
 
 
 
