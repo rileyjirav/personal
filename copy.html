@@ -1,10 +1,63 @@
+<!DOCTYPE html>
 <html>
 <head>
+  <style>
+    *{cursor: url(https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/mallet.png),auto}
+   </style>
+<img id="image0" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Whack-a-mole.png" width="100px">
+<img id="image1" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Whack-a-mole.png" width="100px">
+<img id="image2" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Whack-a-mole.png" width="100px">
+<img id="image3" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Whack-a-mole.png" width="100px">
+<img id="image4" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Whack-a-mole.png" width="100px">
+<img id="image5" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Whack-a-mole.png" width="100px">
+<img id="image6" src="https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/Whack-a-mole.png" width="100px">
 
- <style>
-  body{cursor: url(https://raw.githubusercontent.com/rileyjirav/personal/refs/heads/main/mallet.png),auto}
- </style>
+<script>
+const moles = [
+  { img: document.getElementById('image0'), isActive: true, ID: 'mole0' },
+  { img: document.getElementById('image1'), isActive: true, ID: 'mole1' },
+  { img: document.getElementById('image2'), isActive: true, ID: 'mole2' },
+  { img: document.getElementById('image3'), isActive: true, ID: 'mole3' },
+  { img: document.getElementById('image4'), isActive: true, ID: 'mole4' },
+  { img: document.getElementById('image5'), isActive: true, ID: 'mole5' },
+  { img: document.getElementById('image6'), isActive: true, ID: 'mole6' }
+];
 
+const MOLE_SIZE = 100;
+const PAGE_HEIGHT = window.innerHeight;
+const PAGE_WIDTH = window.innerWidth;
+
+function getRandomInRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function moveImage() {
+  document.body.click();
+
+  document.querySelector('audio').play();
+
+  for (const mole of moles) {
+    if (mole.isActive === true) {
+      mole.img.style.top = getRandomInRange(MOLE_SIZE, PAGE_HEIGHT - MOLE_SIZE) + 'px';
+      mole.img.style.left = getRandomInRange(MOLE_SIZE, PAGE_WIDTH - MOLE_SIZE) + 'px';
+      mole.img.style.filter = `hue-rotate(${getRandomInRange(0, 360)}deg)`;
+    }
+  }
+}
+
+for (const mole of moles) {
+  mole.img.style.position = "absolute";
+  mole.img.onclick = function() {
+    mole.isActive = false;
+  };
+}
+
+setInterval(moveImage, 200);
+</script>
+
+<audio controls autoplay style="visibility: hidden;">
+  <source src="https://cf-hls-media.sndcdn.com/media/159660/3831430/3899139/0Rjb5F0I4vbe.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLWhscy1tZWRpYS5zbmRjZG4uY29tL21lZGlhLzE1OTY2MC8qLyovMFJqYjVGMEk0dmJlLjEyOC5tcDMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3MzExMDI0NTF9fX1dfQ__&Signature=TLLs4k~2oMupNO3KjZESVLyu23utLB90CNiLcaobrj-5Ol4YttXrVmj1jYNclqRdoBMf1f8Upm8u2PKldY-wn7m6SISBCVoqcQ5MqYvin-uj~BkYdd64uJo6fneLpsWiQ1~mljW0FcwTcWginR9WSOQlA9FWA7BccoLWprzQTqTUC0WWduQH3Clu3ekzCOcYq8Wm2uuogNu896Y4GiaK3c5r2NGnjOiHugvJhlq3HPLOuVeLawcalWfTvuLy~5O2yaEZLOXr7uvJHhZtnHOmlQYAQiVAI0ch7OzcGErd7h0Ii5g0b3CIdhtALpiqPbcV8nkge8gKfQengDw20cjaBQ__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 </head>
 </html>
-

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+<script>
+const columns = [
+    {
+        "name": "2024_monthly_11",
+        "width": 80
+    },
+    {
+        "name": "name",
+        "width": 196
+    },
+    {
+        "name": "src-2024_monthly_11",
+        "width": 84
+    },
+    {
+        "name": "cmp-2024_monthly_11",
+        "width": 96
+    },
+    {
+        "name": "third-2024_monthly_11",
+        "width": 84
+    }
+];
+
+const columnDefinitions = [
+    {
+        "headerName": "Name",
+        "field": "name"
+    },
+    {
+        "headerName": "Actuals"
+    },
+    {
+        "headerName": "Nov-24"
+    },
+    {
+        "headerName": "Actuals",
+        "field": "src-2024_monthly_11"
+    },
+    {
+        "headerName": "Plan 11/24_1"
+    },
+    {
+        "headerName": "Jan-24"
+    },
+    {
+        "headerName": "Forecast",
+        "field": "cmp-2024_monthly_11"
+    },
+    {
+        "headerName": "Plan 11/24"
+    },
+    {
+        "headerName": "Nov-24"
+    },
+    {
+        "headerName": "Actuals",
+        "field": "third-2024_monthly_11"
+    },
+    {
+        "headerName": "Δ",
+        "field": "delta-2024_monthly_11"
+    },
+    {
+        "headerName": "%",
+        "field": "%-2024_monthly_11"
+    }
+];
+
+const newColumns = columnDefinitions.filter( item1 => columns.some(item2 => item2.name === item1.field));
+console.log(newColumns);
+
+
+</script>
+
+</head>
+
+
+
